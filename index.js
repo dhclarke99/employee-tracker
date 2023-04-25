@@ -1,13 +1,9 @@
 const inquirer = require('inquirer');
-const mysql = require('mysql2');
+
+const functions = require('./lib/functions');
 // Create a MySQL connection
-const connect = mysql.createConnection({
-    host: '127.0.0.1',
-    port: 3306,
-    user: 'root',
-    password: 'tomnjerry',
-    database: 'company_db'
-  });
+
+
 
 
 const questions = () => { 
@@ -22,11 +18,9 @@ const questions = () => {
  
       ]).then((data) => {
         console.log(data);
-        if (data.action !== "Quit") {
-         
-          return askQuestions();
-        } else {
-            return
+       if (data.action === "View all departments") {
+            functions.viewDepartments();
+            return askQuestions();   
         }
       });
     };
