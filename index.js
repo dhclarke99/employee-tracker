@@ -27,13 +27,29 @@ const questions = () => {
         }  else if (data.action === "View all employees") {
             functions.viewEmployees();
             return askQuestions();   
-        }
-      });
+        } else if (data.action === "Add a department") {
+            return inquirer.prompt([
+                {
+                    type: 'input',
+                    name: 'departmentName',
+                    message: 'Enter the Department name',
+                    
+                  }
+                ]) .then((data) => {
+                    let newDept = data.departmentName
+                    functions.addDepartment(newDept);
+
+                    return askQuestions();   
+                });  
+        } else if (data.action = "quit") {
+                console.log("All Done!"); 
+                return 
+            }
+        });
+      }
+      return askQuestions();
     };
   
- 
-    return askQuestions();
-  };
   
   questions();
  
