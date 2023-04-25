@@ -42,6 +42,7 @@ const questions = () => {
                     return askQuestions();   
                 });  
         } else if (data.action === "Add a role") {
+          
             return inquirer.prompt([
                 
                 {
@@ -59,11 +60,13 @@ const questions = () => {
                     type: 'list',
                     name: 'roleDept',
                     message: 'What department does the role belong to?',
-                    choices: () => functions.grabRoles(),
+                    choices: ["Business Operations", "Sales", "Finance", "HR"],
+                
                 } 
                 ]) .then((data) => {
                     
                     functions.addRole(data);
+
 
                     return askQuestions();   
                 });  
