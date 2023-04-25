@@ -13,7 +13,7 @@ const questions = () => {
             type: 'list',
             name: 'action',
             message: 'What would you like to do?',
-            choices: ["View all departments", "View all roles", "View all employees", "Add a department", "add a role", "add an employee", "update an employee role", "Quit"]
+            choices: ["View all departments", "View all roles", "View all employees", "Add a department", "Add a role", "Add an employee", "Update an employee role", "Quit"]
           }
  
       ]).then((data) => {
@@ -32,12 +32,38 @@ const questions = () => {
                 {
                     type: 'input',
                     name: 'departmentName',
-                    message: 'Enter the Department name',
+                    message: 'What is the department name?',
                     
                   }
                 ]) .then((data) => {
                     let newDept = data.departmentName
                     functions.addDepartment(newDept);
+
+                    return askQuestions();   
+                });  
+        } else if (data.action === "Add a role") {
+            return inquirer.prompt([
+                
+                {
+                    type: 'input',
+                    name: 'roleName',
+                    message: 'What is the name of the role?',
+                    
+                  },
+                {
+                    type: 'input',
+                    name: 'roleSalary',
+                    message: 'What is the salary of the role?',
+                }, 
+                {
+                    type: 'list',
+                    name: 'roleDept',
+                    message: 'What department does the role belong to?',
+                    choices: () => functions.grabRoles(),
+                } 
+                ]) .then((data) => {
+                    
+                    functions.addRole(data);
 
                     return askQuestions();   
                 });  
