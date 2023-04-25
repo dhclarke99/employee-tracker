@@ -21,6 +21,12 @@ const questions = () => {
        if (data.action === "View all departments") {
             functions.viewDepartments();
             return askQuestions();   
+        } else if (data.action === "View all roles") {
+            functions.viewRoles();
+            return askQuestions();   
+        }  else if (data.action === "View all employees") {
+            functions.viewEmployees();
+            return askQuestions();   
         }
       });
     };
