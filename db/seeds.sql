@@ -13,10 +13,10 @@ VALUES ("VP of Operations", 180000, 1),
        ("Chief Financial Officer", 300000, 3),
        ("Recruiter", 75000, 4);
 
-INSERT INTO employee (first_name, last_name, role_id)
-VALUES ("John", "Johnson", 1),
-       ("Carly", "Kim", 2),
-       ("Saquon", "Barkley", 6),
-       ("Stephen", "Curry", 4);
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
+VALUES ("John", "Johnson", 1, NULL),
+       ("Carly", "Kim", 2, 1),
+       ("Saquon", "Barkley", 6, NULL),
+       ("Stephen", "Curry", 4, 3);
 
 
