@@ -42,7 +42,7 @@ const questions = () => {
                     return askQuestions();   
                 });  
         } else if (data.action === "Add a role") {
-            return functions.grabRoles().then(departmentNames => {
+            return functions.grabDepartments().then(departmentNames => {
             return inquirer.prompt([
                 
                 {
@@ -64,8 +64,45 @@ const questions = () => {
                 
                 } 
                 ]) .then((data) => {
-                    // const choice = data.roleDept;
+                   
                     functions.addRole(data, departmentNames);
+
+
+                    return askQuestions();   
+                });  
+            });
+        } else if (data.action === "Add an employee") {
+            return Promise.all([functions.grabRoles(), functions.grabManagers()]).then(([roleNames, managerNames]) => {
+            return inquirer.prompt([
+                
+                {
+                    type: 'input',
+                    name: 'roleName',
+                    message: 'What is the employees first name?',
+                    
+                  },
+                {
+                    type: 'input',
+                    name: 'roleSalary',
+                    message: 'What is the employees last name?',
+                }, 
+                {
+                    type: 'list',
+                    name: 'roleDept',
+                    message: 'What is the employees role?',
+                    choices: roleNames,
+                
+                }, 
+                {
+                    type: 'list',
+                    name: 'roleDept',
+                    message: 'Who is the employees manager?',
+                    choices: managerNames,
+                
+                }
+                ]) .then((data) => {
+                    
+                    functions.addEmployee(data, roleNames, managerNames);
 
 
                     return askQuestions();   
