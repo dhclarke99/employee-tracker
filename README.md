@@ -9,48 +9,22 @@ Building this project provided experience with using mysql and inquirer.js toget
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+To use this application you must have VS Code or some other source code editor installed on your local system. You must also have node js installed as well as mysql2.
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+[Walkthrough Video](https://drive.google.com/file/d/1Uvl-9vFkKahb1EuASnsvQw529qeIt79O/view)
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+Clone this repo to your local system and open the repo in VS code. First you will need to create the sql database and input the seed data. To do this open your schema.sql file in the integrated terminal and run the following commands:
+```mysql -uroot -p```
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+You will then need to login to mysql using your password and run the following commands:
 
-## Credits
+```SOURCE schema.sql;```
 
-List your collaborators, if any, with links to their GitHub profiles.
+```SOURCE seeds.sql;```
 
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
 
-If you followed tutorials, include links to those here as well.
+Then, click on the index.js file and open it in your integrated terminal. Run the command "Node Index.js" and a series of prompts will appear. Use your arrow keys and enter button to navigate the prompts. Select the "quit" option to close the application.
 
-## License
-
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
-
----
-
-🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
-
-## Badges
-
-![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
-
-Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-
-## Features
-
-If your project has a lot of features, list them here.
-
-## How to Contribute
-
-If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
-
-## Tests
-
-Go the extra mile and write tests for your application. Then provide examples on how to run them here.
+![Terminal View](./images/Screen%20Shot%202023-04-27%20at%2010.07.11%20PM.png)
