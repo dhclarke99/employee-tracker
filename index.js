@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 
+
 const functions = require('./lib/functions');
 // Create a MySQL connection
 
