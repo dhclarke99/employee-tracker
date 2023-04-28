@@ -42,7 +42,7 @@ const questions = () => {
                     return askQuestions();   
                 });  
         } else if (data.action === "Add a role") {
-          
+            return functions.grabRoles().then(departmentNames => {
             return inquirer.prompt([
                 
                 {
@@ -60,16 +60,17 @@ const questions = () => {
                     type: 'list',
                     name: 'roleDept',
                     message: 'What department does the role belong to?',
-                    choices: ["Business Operations", "Sales", "Finance", "HR"],
+                    choices: departmentNames,
                 
                 } 
                 ]) .then((data) => {
-                    
-                    functions.addRole(data);
+                    // const choice = data.roleDept;
+                    functions.addRole(data, departmentNames);
 
 
                     return askQuestions();   
                 });  
+            });
         } else if (data.action = "quit") {
                 console.log("All Done!"); 
                 return 
